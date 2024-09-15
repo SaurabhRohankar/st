@@ -113,28 +113,33 @@ float alphaUnfocus;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	"#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
-	"#cc241d",
-	"#98971a",
-	"#d79921",
-	"#458588",
-	"#b16286",
-	"#689d6a",
-	"#a89984",
-	"#928374",
-	"#fb4934",
-	"#b8bb26",
-	"#fabd2f",
-	"#83a598",
-	"#d3869b",
-	"#8ec07c",
-	"#ebdbb2",
+	/* 8 normal colors */
+	"black",
+	"red3",
+	"green3",
+	"yellow3",
+	"blue2",
+	"magenta3",
+	"cyan3",
+	"gray90",
+
+	/* 8 bright colors */
+	"gray50",
+	"red",
+	"green",
+	"yellow",
+	"#5c5cff",
+	"magenta",
+	"cyan",
+	"white",
+
 	[255] = 0,
+
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#add8e6", /* 256 -> cursor */
-	"#555555", /* 257 -> rev cursor*/
-	"#282828", /* 258 -> bg */
-	"#ebdbb2", /* 259 -> fg */
+	"#cccccc",
+	"#555555",
+	"gray90", /* default foreground colour */
+	"black", /* default background colour */
 };
 
 
@@ -142,11 +147,11 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 259;
-unsigned int defaultbg = 258;
+unsigned int defaultfg = 258;
+unsigned int defaultbg = 259;
 unsigned int defaultcs = 256;
 unsigned int defaultrcs = 257;
-unsigned int background = 258;
+unsigned int background = 259;
 
 /*
  * Default shape of cursor
@@ -190,24 +195,24 @@ static uint forcemousemod = ShiftMask;
 ResourcePref resources[] = {
 		{ "font",         STRING,  &font },
 		{ "fontalt0",     STRING,  &font2[0] },
-		{ "color0",       STRING,  &colorname[0] },
-		{ "color1",       STRING,  &colorname[1] },
-		{ "color2",       STRING,  &colorname[2] },
-		{ "color3",       STRING,  &colorname[3] },
-		{ "color4",       STRING,  &colorname[4] },
-		{ "color5",       STRING,  &colorname[5] },
-		{ "color6",       STRING,  &colorname[6] },
-		{ "color7",       STRING,  &colorname[7] },
-		{ "color8",       STRING,  &colorname[8] },
-		{ "color9",       STRING,  &colorname[9] },
-		{ "color10",      STRING,  &colorname[10] },
-		{ "color11",      STRING,  &colorname[11] },
-		{ "color12",      STRING,  &colorname[12] },
-		{ "color13",      STRING,  &colorname[13] },
-		{ "color14",      STRING,  &colorname[14] },
-		{ "color15",      STRING,  &colorname[15] },
-		{ "background",   STRING,  &colorname[258] },
-		{ "foreground",   STRING,  &colorname[259] },
+		/*{ "color0",       STRING,  &colorname[0] },*/
+		/*{ "color1",       STRING,  &colorname[1] },*/
+		/*{ "color2",       STRING,  &colorname[2] },*/
+		/*{ "color3",       STRING,  &colorname[3] },*/
+		/*{ "color4",       STRING,  &colorname[4] },*/
+		/*{ "color5",       STRING,  &colorname[5] },*/
+		/*{ "color6",       STRING,  &colorname[6] },*/
+		/*{ "color7",       STRING,  &colorname[7] },*/
+		/*{ "color8",       STRING,  &colorname[8] },*/
+		/*{ "color9",       STRING,  &colorname[9] },*/
+		/*{ "color10",      STRING,  &colorname[10] },*/
+		/*{ "color11",      STRING,  &colorname[11] },*/
+		/*{ "color12",      STRING,  &colorname[12] },*/
+		/*{ "color13",      STRING,  &colorname[13] },*/
+		/*{ "color14",      STRING,  &colorname[14] },*/
+		/*{ "color15",      STRING,  &colorname[15] },*/
+		/*{ "background",   STRING,  &colorname[258] },*/
+		/*{ "foreground",   STRING,  &colorname[259] },*/
 		{ "cursorColor",  STRING,  &colorname[256] },
 		{ "termname",     STRING,  &termname },
 		{ "shell",        STRING,  &shell },
